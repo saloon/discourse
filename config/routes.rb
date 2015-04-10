@@ -454,6 +454,8 @@ Discourse::Application.routes.draw do
   get "/posts/:id/raw-email" => "posts#raw_email"
   get "raw/:topic_id(/:post_number)" => "posts#markdown_num"
 
+  resources :queued_posts, constraints: StaffConstraint.new
+
   resources :invites do
     collection do
       get "upload" => "invites#check_csv_chunk"
