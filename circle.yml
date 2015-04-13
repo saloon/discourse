@@ -1,7 +1,7 @@
 machine:
   ruby:
     version:
-      2.1
+      "2.1"
 
   environment:
     DISCOURSE_HOSTNAME: www.example.com
