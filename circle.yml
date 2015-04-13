@@ -5,15 +5,9 @@ machine:
 
   environment:
     DISCOURSE_HOSTNAME: www.example.com
-    RUBY_GC_MALLOC_LIMIT: +50000000
+    RUBY_GC_MALLOC_LIMIT: 50000000
 
 test:
   post:
-    - bundle exec rake plugin:spec:
-      environment:
-        RAILS_ENV: test
-        RACK_ENV: test
-    - bundle exec rake qunit:test:
-      environment:
-        RAILS_ENV: test
-        RACK_ENV: test
+    - bundle exec rake plugin:spec
+    - bundle exec rake qunit:test
