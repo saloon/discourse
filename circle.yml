@@ -9,5 +9,5 @@ machine:
 
 test:
   override:
-    - case $CIRCLE_NODE_INDEX in 0) bundle exec rspec -P "spec/components/**/*_spec.rb" && bundle exec rspec -P "spec/controllers/**/*_spec.rb" && bundle exec rspec -P "spec/services/**/*_spec.rb" && bundle exec rspec -P "spec/jobs/**/*_spec.rb" && bundle exec rake plugin:spec ;; 1) bundle exec rspec -P "spec/models/**/*_spec.rb" && bundle exec rspec -P "spec/{mailers,integration,fabricators,serializers,support,helpers,phantom_js,integrity,views}/**/*_spec.rb" && bundle exec rake qunit:test ;; esac:
+    - case $CIRCLE_NODE_INDEX in 0) bundle exec rspec -P "spec/components/**/*_spec.rb" && bundle exec rspec -P "spec/services/**/*_spec.rb" ;; 1) bundle exec rspec -P "spec/controllers/**/*_spec.rb" && bundle exec rspec -P "spec/{mailers,integration,fabricators,serializers,support,helpers,phantom_js,integrity,views}/**/*_spec.rb" ;; 2) bundle exec rspec -P "spec/models/**/*_spec.rb" && bundle exec rspec -P "spec/jobs/**/*_spec.rb" ;; 3) bundle exec rake qunit:test && bundle exec rake plugin:spec ;; esac:
         parallel: true
