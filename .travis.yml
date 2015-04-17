@@ -7,6 +7,8 @@ env:
   matrix:
     - TRAVIS_NODE_INDEX=0
     - TRAVIS_NODE_INDEX=1
+    - TRAVIS_NODE_INDEX=2
+    - TRAVIS_NODE_INDEX=3
 
 rvm:
   - 2.1
@@ -24,4 +26,4 @@ before_script:
 
 bundler_args: --without development --deployment --retry=3 --jobs=3
 
-script: 'case $TRAVIS_NODE_INDEX in 0) (bundle exec rspec -P "spec/components/**/*_spec.rb" || true ) && (bundle exec rspec -P "spec/controllers/**/*_spec.rb" || true ) && (bundle exec rspec -P "spec/services/**/*_spec.rb" || true ) && (bundle exec rspec -P "spec/jobs/**/*_spec.rb" || true ) && (bundle exec rake plugin:spec || true) ;; 1) (bundle exec rspec -P "spec/models/**/*_spec.rb" || true ) && (bundle exec rspec -P "spec/{mailers,integration,fabricators,serializers,support,helpers,phantom_js,integrity,views}/**/*_spec.rb" || true ) && (bundle exec rake qunit:test || true ) ;; esac'
+script: 'case $TRAVIS_NODE_INDEX in 0) ( bundle exec rspec -P "spec/components/**/*_spec.rb" || true ) && ( bundle exec rspec -P "spec/services/**/*_spec.rb" || true ) ;; 1) ( bundle exec rspec -P "spec/controllers/**/*_spec.rb" || true ) && ( bundle exec rspec -P "spec/{mailers,integration,fabricators,serializers,support,helpers,phantom_js,integrity,views}/**/*_spec.rb" || true ) ;; 2) ( bundle exec rspec -P "spec/models/**/*_spec.rb" || true ) && ( bundle exec rspec -P "spec/jobs/**/*_spec.rb" || true ) ;; 3) ( bundle exec rake qunit:test || true ) && ( bundle exec rake plugin:spec || true ) ;; esac'
