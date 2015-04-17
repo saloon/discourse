@@ -12,7 +12,4 @@ tests:
  - 'bundle exec rspec -P "spec/{mailers,integration,fabricators,serializers,support,helpers,phantom_js,integrity,views}/**/*_spec.rb" || true'
  - 'bundle exec rake plugin:spec || true'
  - 'bundle exec rake qunit:test || true'
-
 ruby_version: ruby-2.1.0
-hooks:
-  worker_setup: "psql -c 'create database discourse_test;' -U postgres && bundle exec rake db:migrate"
