@@ -13,7 +13,7 @@ services:
 
 sudo: false
 
-cache: bundler
+cache: true
 
 before_script:
   - psql -c 'create database discourse_test;' -U postgres
