@@ -19,7 +19,7 @@ sudo: false
 cache: bundler
 
 before_script:
-  - psql -c 'create database discourse_test;' -U postgres
+  - psql -c 'create database if not exists discourse_test;' -U postgres
   - bundle exec rake db:migrate
 
 bundler_args: --without development --deployment --retry=3 --jobs=3
