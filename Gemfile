@@ -8,7 +8,7 @@ module ::Kernel
   end
 end
 
-if rails_master?
+if false
   # monkey patching to support dual booting
   module Bundler::SharedHelpers
     def default_lockfile=(path)
@@ -68,7 +68,7 @@ unless Bundler::Dependency::PLATFORM_MAP.include? :mri_21
 end
 
 
-if rails_master?
+if false
   gem 'arel', git: 'https://github.com/rails/arel.git'
   gem 'rails', git: 'https://github.com/rails/rails.git'
   gem 'rails-observers', git: 'https://github.com/SamSaffron/rails-observers.git'
@@ -94,7 +94,7 @@ gem 'redis', require:  ["redis", "redis/connection/hiredis"]
 # We use some ams 0.8.0 features, need to amend code
 # to support 0.9 etc, bench needs to run and ensure no
 # perf regressions
-if rails_master?
+if false
   gem 'active_model_serializers', github: 'rails-api/active_model_serializers', branch: '0-8-stable'
 else
   gem 'active_model_serializers', '~> 0.8.0'
@@ -169,7 +169,7 @@ gem 'rack-protection' # security
 # allow everywhere for now cause we are allowing asset debugging in prd
 group :assets do
 
-  if rails_master?
+  if false
     gem 'sass-rails', git: 'https://github.com/rails/sass-rails.git'
   else
     # later is breaking our asset compliation extensions

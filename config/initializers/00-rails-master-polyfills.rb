@@ -1,4 +1,4 @@
-unless rails_master?
+unless false
 
 class Mail::Message
   alias_method :deliver_now,  :deliver
