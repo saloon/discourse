@@ -1,5 +1,5 @@
 
-if rails_master?
+if false
   class ActiveRecord::ConnectionAdapters::AbstractAdapter
     module LastUseExtension
       attr_reader :last_use
