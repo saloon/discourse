@@ -14,3 +14,5 @@ tests:
  - 'bundle exec rake plugin:spec || true'
  - 'bundle exec rake qunit:test || true'
 ruby_version: ruby-2.1.0
+rake:
+  rails_env: 'test'
