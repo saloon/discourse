@@ -16,3 +16,5 @@ tests:
 ruby_version: ruby-2.1.0
 rake:
   rails_env: 'test'
+hooks:
+  worker_setup: bundle exec rake db:setup db:seed # OK!
