@@ -1,8 +1,8 @@
 defaults: &defaults
-  host: <%= GlobalSetting.redis_host %>
-  port: <%= GlobalSetting.redis_port %>
-  password: <%= GlobalSetting.redis_password %>
-  db: <%= GlobalSetting.redis_db %>
+  host: <%= ENV['TDDIUM_REDIS_HOST'] %>
+  port: <%= ENV['TDDIUM_REDIS_PORT'] %>
+  password: <%= ENV['TDDIUM_REDIS_PASSWORD'] %>
+  db: <%= ENV['TDDIUM_REDIS_DB'] %>
 
 development:
   <<: *defaults
