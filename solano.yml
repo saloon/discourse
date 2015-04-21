@@ -1,13 +1,15 @@
 environment:
   'DISCOURSE_HOSTNAME': 'www.example.com'
   'RAILS_MASTER': '0'
-tests:
- - 'bundle exec rake plugin:spec || true'
- - 'bundle exec rake qunit:test || true'
 ruby_version: ruby-2.1.0
 rake:
   rails_env: 'test'
 postgresql:
   version: 9.3
 hooks:
-  worker_setup: bundle exec rake db:setup db:seed # OK!
+  worker_setup: bundle exec rake db:setup db:seed
+test_pattern:
+  - spec/**/*_spec.rb
+tests:
+ - bundle exec rake plugin:spec || true
+ - bundle exec rake qunit:test || true
