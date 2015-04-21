@@ -8,8 +8,14 @@ postgresql:
   version: 9.3
 hooks:
   worker_setup: bundle exec rake db:setup db:seed
-test_pattern:
-  - spec/**/*_spec.rb
+test_pattern: 'none'
 tests:
-  - bundle exec rake plugin:spec || true
-  - bundle exec rake qunit:test || true
+ - 'bundle exec rspec -P "spec/components/**/*_spec.rb" || true'
+ - 'bundle exec rspec -P "spec/models/**/*_spec.rb" || true'
+ - 'bundle exec rspec -P "spec/controllers/**/*_spec.rb" || true'
+ - 'bundle exec rspec -P "spec/fixtures/**/*_spec.rb" || true'
+ - 'bundle exec rspec -P "spec/services/**/*_spec.rb" || true'
+ - 'bundle exec rspec -P "spec/jobs/**/*_spec.rb" || true'
+ - 'bundle exec rspec -P "spec/{mailers,integration,fabricators,serializers,support,helpers,phantom_js,integrity,views}/**/*_spec.rb" || true'
+ - 'bundle exec rake plugin:spec || true'
+ - 'bundle exec rake qunit:test || true'
